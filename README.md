@@ -35,3 +35,8 @@ Shrut incorporates the AOS (Animate On Scroll) library to add smooth animations 
 - **CSS**: Custom styles are applied using CSS, with Tailwind CSS as the primary framework for utility-first styling. Tailwind CSS allows for rapid design and customization, making it easier to create a visually appealing interface.
 - **JavaScript**: The application logic, including fetching data from the NewsAPI and handling user interactions, is implemented using JavaScript. This enables dynamic content updates and enhances the interactivity of the application.
 - **NewsAPI**: The application relies on the NewsAPI to fetch the latest news articles from various sources. This API provides a reliable and comprehensive source of news data, ensuring that users receive accurate and timely information.
+
+## Output
+![Image](https://github.com/user-attachments/assets/1ebaa771-6311-4654-8e08-59ecb7d694d6)
+![Image](https://github.com/user-attachments/assets/5fbe0dbb-f00d-47a6-b755-7a088c580555)
+![Image](https://github.com/user-attachments/assets/9b578054-7663-497c-b4b3-b33c4df93129)
