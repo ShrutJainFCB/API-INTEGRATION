@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shrut - Joyful News Webpage</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            shrutBlue: '#1E90FF',
+            cheerfulOrange: '#FFB74D',
+            cheerfulGreen: '#81C784',
+            cheerfulPink: '#FF6F61',
+            darkText: '#1a1a1a',
+            lightGray: '#f8f8f8',
+            accentGray: '#e5e7eb',
+            darkBackground: '#121212',
+            darkTextLight: '#e0e0e0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    };
+  </script>
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* General body styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f8f8;
+      color: #1a1a1a;
+      transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color */
+    }
+
+    /* Dark mode styles */
+    body.dark {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    /* News card styles */
+    .news-card {
+      background-color: white;
+      transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+      border-radius: 1rem; /* Rounded corners */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    /* Dark mode news card styles */
+    body.dark .news-card {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px; /* Width of the scrollbar */
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #1E90FF; /* Color of the scrollbar thumb */
+      border-radius: 4px; /* Rounded edges for the scrollbar thumb */
+    }
+
+    /* Button focus style */
+    input:focus, button:focus {
+      outline: none; /* Remove default outline */
+      box-shadow: 0 0 5px #1E90FF; /* Add a blue glow effect */
+    }
+
+    /* Search bar placeholder color */
+    ::placeholder {
+      color: #A0AEC0; /* Light gray for better contrast */
+    }
+
+    /* Skeleton loader styles */
+    .skeleton {
+      background-color: #e0e0e0; /* Light gray background */
+      border-radius: 0.5rem; /* Rounded corners */
+      animation: pulse 1.5s infinite; /* Pulsing animation */
+    }
+
+    @keyframes pulse {
+      0% {
+        background-color: #e0e0e0;
+      }
+      50% {
+        background-color: #d0d0d0; /* Slightly darker gray */
+      }
+      100% {
+        background-color: #e0e0e0;
+      }
+    }
+
+    /* Genre button styles */
+    .genre-btn {
+      transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+      border-radius: 0.5rem; /* Rounded corners */
+      padding: 0.5rem 1rem; /* Padding for buttons */
+    }
+
+    /* Hover effect for genre buttons */
+    .genre-btn:hover {
+      background-color: #FFB74D; /* Cheerful orange for hover */
+      color: white; /* Change text color to white */
+    }
+
+    /* Active genre button styles */
+    .genre-btn.active {
+      background-color: #81C784; /* Cheerful green for active */
+      color: white; /* Change text color to white */
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Header with Title and Navigation -->
+  <header class="bg-white border-b border-accentGray shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-extrabold text-shrutBlue">Shrut</h1>
+      <nav class="flex space-x-4">
+        <button class="genre-btn category-btn text-darkText font-semibold" data-category="">Home</button>
+        <button class="genre-btn category-btn text-darkText font-semibold" data-category="business">Business</button>
+        <button class="genre-btn category-btn text-darkText font-semibold" data-category="entertainment">Entertainment</button>
+        <button class="genre-btn category-btn text-darkText font-semibold" data-category="health">Health</button>
+        <button class="genre-btn category-btn text-darkText font-semibold" data-category="science">Science</button>
+        <button class="genre-btn category-btn text-darkText font-semibold" data-category="sports">Sports</button>
+        <button class="genre-btn category-btn text-darkText font-semibold" data-category="technology">Tech</button>
+      </nav>
+      <button id="theme-toggle" class="ml-4 p-2 rounded bg-shrutBlue text-white">Toggle Dark Mode</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8 flex-grow">
+
+    <!-- Search Section -->
+    <div class="flex flex-col md:flex-row items-center gap-4 mb-10">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search news by keyword..."
+        class="w-full md:w-2/3 px-4 py-3 rounded border border-gray-300 focus:border-shrutBlue transition"
+      />
+      <button
+        id="search-btn"
+        class="bg-shrutBlue text-white font-bold px-6 py-3 rounded hover:bg-blue-600 transition-all"
+      >
+        Search
+      </button>
+    </div>
+
+    <!-- News Articles Grid -->
+    <div id="news-container" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <!-- JavaScript will populate news here -->
+    </div>
+
+    <!-- Pagination -->
+    <div id="pagination" class="flex justify-center mt-6">
+      <button id="prev-btn" class="bg-shrutBlue text-white px-4 py-2 rounded-l hover:bg-blue-600 transition-all" disabled>Previous</button>
+      <button id="next-btn" class="bg-shrutBlue text-white px-4 py-2 rounded-r hover:bg-blue-600 transition-all">Next</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center text-sm py-4 border-t border-accentGray">
+    <p class="text-gray-500">© 2025 Shrut | Responsive News Webpage</p>
+  </footer>
+
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true }); // Initialize AOS for animations
+  </script>
+
+  <!-- Link to external JS -->
+  <script src="script.js"></script>
+</body>
+</html>
