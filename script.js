@@ -1,4 +1,3 @@
-// Replace with your own NewsAPI key
 const apiKey = '166c7ccf4cfa421593c1a815ef9f82b7';
 const newsContainer = document.getElementById('news-container');
 const searchInput = document.getElementById('search-input');
