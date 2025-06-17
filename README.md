@@ -1,3 +1,17 @@
+## API INTEGRATION
+
+- COMPANY: CODTECH IT SOLUTIONS
+
+- NAME: SHRUT JAIN
+
+- INTERN ID: COD08111
+
+- DOMAIN: FULL STACK WEB DEVELOPMENT
+
+= DURATION: 4 WEEEKS
+
+= MENTOR: NEELA SANTOSH
+
 ## Overview
 
 **Shrut** is a responsive web application designed to provide users with the latest news articles from various categories, including business, entertainment, health, science, sports, and technology. Built using modern web technologies such as HTML, CSS, JavaScript, and the Tailwind CSS framework, Shrut aims to deliver a seamless and engaging user experience. The application fetches news articles from the NewsAPI, allowing users to search for specific topics or browse through different categories.
